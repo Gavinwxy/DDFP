@@ -1,0 +1,8 @@
+Pillow
+PyYAML
+setuptools
+setuptools
+tensorboardX
+torch
+torchvision
+FrEIA

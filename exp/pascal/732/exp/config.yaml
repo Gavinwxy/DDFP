@@ -1,0 +1,108 @@
+dataset: # Required.
+  type: pascal_semi
+  train:
+    data_root: /workspace/data/Pascal/VOCdevkit/VOC2012
+    data_list: ../../../../data/splits/pascal/732/labeled.txt
+    flip: True
+    GaussianBlur: False
+    rand_resize: [0.5, 2.0]
+  num_cls: 21
+
+  val:
+    data_root: /workspace/data/Pascal/VOCdevkit/VOC2012
+    data_list: ../../../../data/splits/pascal/val.txt
+    crop:
+      type: center
+      size: [513, 513] # crop image with HxW size
+  
+  train_crop_size: 513
+  batch_size: 4
+  n_sup: 732
+  noise_std: 0.1
+  workers: 4
+  mean: [123.675, 116.28, 103.53]
+  std: [58.395, 57.12, 57.375]
+  ignore_label: 255
+ignore_label: 255
+
+
+trainer: # Required.
+  epochs: 80
+  eval_on: True
+  optimizer:
+    type: SGD
+    kwargs:
+      lr: 0.001  # 4GPUs
+      momentum: 0.9
+      weight_decay: 0.0001
+  lr_scheduler:
+    mode: poly
+    kwargs:
+      power: 0.9
+  unsupervised:
+    TTA: False
+    drop_percent: 80
+    apply_aug: cutmix  
+  sup_only_epoch: 1 #1
+  nf_start_epoch: 1 #2
+  thresh: 0.95
+  loss_weight: 0.5
+
+saver:
+  snapshot_dir: checkpoints
+  pretrain: ''
+  auto_resume: False
+
+criterion:
+  type: CELoss
+  kwargs:
+    use_weight: False
+
+net: # Required.
+  fts_dim: 256 
+  num_classes: 21
+  sync_bn: True
+  ema_decay: 0.999
+  encoder:
+    type: model.models_fts_pt.resnet.resnet101
+    kwargs:
+      multi_grid: False
+      zero_init_residual: False
+      fpn: True
+      replace_stride_with_dilation: [False, False, True]  #layer0...1 is fixed, layer2...4
+  decoder:
+    type: model.models_fts_pt.decoder.dec_deeplabv3_plus
+    kwargs:
+      inner_planes: 256
+      dilations: [6, 12, 18]
+
+
+flow:
+  n_components: 21
+  train_un_sup: True
+  lr: 0.001 # 0.001
+  batch_size: 1024
+  n_blocks: 2 
+  clamping: 2.0 
+  add_noise: True
+  noise: 0.05 # 0.05
+  cond_size: 20
+  layer_dims: 256 #256 
+  input_dims: 256 #256
+  grad_clip: 50 #50
+  learnable_mean: False
+  mean_lr: 0.00001
+  
+
+adv:
+  nf: True
+  cls: False
+  entropy: False
+  kl: False
+  eps: 4.0
+  eps_rand_init: False
+  zero_init: True
+  tiny_rand_init: False
+  l2_norm: True
+  l_infi_norm: False
+  rand_noise: False
