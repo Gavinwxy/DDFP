@@ -7,7 +7,6 @@ dev/
 data/cityscapes/
 data/VOC2012/
 events/
-log/
 checkpoints/
 viewer*/
 train.log.*
@@ -16,7 +15,6 @@ debug.py
 *.npy
 
 # Data files and directories common in repo root
-logs/
 *.h5
 results/
 temp/
