@@ -93,11 +93,7 @@ flow:
   
 
 adv:
-  nf: False
-  cls: False
-  entropy: True
-  kl: False
-  eps: 2.0
+  eps: 4.0
   eps_rand_init: False
   zero_init: True
   tiny_rand_init: False

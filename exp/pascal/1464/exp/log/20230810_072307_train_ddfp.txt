@@ -14,14 +14,10 @@ Setting OMP_NUM_THREADS environment variable for each process to be 1 in default
 set random seed to 2
 set random seed to 2
 set random seed to 2
-[2023-08-10 07:23:13,523][    INFO] {'adv': {'cls': False,
-         'entropy': True,
-         'eps': 4.0,
+[2023-08-10 07:23:13,523][    INFO] {'adv': {'eps': 4.0,
          'eps_rand_init': False,
-         'kl': False,
          'l2_norm': True,
          'l_infi_norm': False,
-         'nf': True,
          'rand_noise': False,
          'tiny_rand_init': False,
          'zero_init': True},
