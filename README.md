@@ -16,7 +16,7 @@
 ### Installation
 
 ```bash
-cd ddfp
+cd DDFP
 conda create -n ddfp python=3.10
 conda activate ddfp
 pip install -r requirements.txt
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 Download pretrained wegiths [ResNet-101](https://drive.google.com/file/d/1Rx0legsMolCWENpfvE2jUScT3ogalMO8/view?usp=sharing)
 
 ```
-├── ddfp/
+├── DDFP/
     └── resnet101.pth
 ```
 
