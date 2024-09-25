@@ -1,8 +1,8 @@
 <!-- <div align="center"> -->
 
-## Towards the Uncharted: Density-Descending Feature Perturbation  for Semi-supervised Semantic Segmentation
+## Towards the Uncharted: Density-Descending Feature Perturbation for Semi-supervised Semantic Segmentation
 
-> **[Towards the Uncharted: Density-Descending Feature Perturbation  for Semi-supervised Semantic Segmentation](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Towards_the_Uncharted_Density-Descending_Feature_Perturbation_for_Semi-supervised_Semantic_Segmentation_CVPR_2024_paper.pdf)**<br>
+> **[Towards the Uncharted: Density-Descending Feature Perturbation for Semi-supervised Semantic Segmentation](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Towards_the_Uncharted_Density-Descending_Feature_Perturbation_for_Semi-supervised_Semantic_Segmentation_CVPR_2024_paper.pdf)**<br>
 > Xiaoyang Wang, Huihui Bai, Limin Yu, Yao Zhao, and Jimin Xiao.<br>
 > In CVPR 2024.<br>
 
